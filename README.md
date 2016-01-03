@@ -75,7 +75,7 @@ The updates listed below are in order of newest to oldest.
 
 <b>January 3rd 2016</b>
 <ul>
-<li>Fixed issues 1 and 2 in GitHub issue tracker</li>
+<li>Fixed issues 1, 2 and 3 in GitHub issue tracker</li>
 </ul>
 
 <h3>WordBB 0.3.1</h3>
