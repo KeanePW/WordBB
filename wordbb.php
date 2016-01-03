@@ -126,6 +126,8 @@ function wordbb_check_config() {
 function wordbb_init() {
 	global $wordbb, $wpdb;
 
+	$wordbb = $pdb = new stdClass();
+
 	$wordbb->errors=array();
 	$wordbb->bridges=array();
 
@@ -1292,7 +1294,7 @@ function wordbb_get_comments_array($comments)
 
 			foreach($replies as $reply)
 			{
-				$comment = null;
+				$comment = new stdClass();
 				$comment->comment_ID = $reply->pid;
 				$comment->comment_post_ID = $post->ID;
 				$comment->comment_author = $reply->username;

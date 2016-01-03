@@ -61,16 +61,16 @@ function wordbb_get_bridge($type,$wp_id='',$mybb_id='')
 
 	$bridge=false;
 
-	$q='SELECT * FROM wordbb_meta WHERE type="'.$wpdb->escape($type).'"';
+	$q='SELECT * FROM wordbb_meta WHERE type="'.$wpdb->esc_sql($type).'"';
 
 	switch($type)
 	{
 	case WORDBB_CAT:
 		{
 			if(!empty($wp_id))
-				$q.=' AND wp_id='.$wpdb->escape($wp_id);
+				$q.=' AND wp_id='.$wpdb->esc_sql($wp_id);
 			if(!empty($mybb_id))
-				$q.=' AND mybb_id='.$wpdb->escape($mybb_id);
+				$q.=' AND mybb_id='.$wpdb->esc_sql($mybb_id);
 
 			$bridge=$wpdb->get_row($q);
 		}
@@ -85,9 +85,9 @@ function wordbb_get_bridge($type,$wp_id='',$mybb_id='')
 			}
 
 			if(!empty($wp_id))
-				$q.=' AND wp_id='.$wpdb->escape($wp_id);
+				$q.=' AND wp_id='.$wpdb->esc_sql($wp_id);
 			if(!empty($mybb_id))
-				$q.=' AND mybb_id='.$wpdb->escape($mybb_id);
+				$q.=' AND mybb_id='.$wpdb->esc_sql($mybb_id);
 
 			$bridge=$wpdb->get_row($q);
 		}
