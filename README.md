@@ -1,8 +1,10 @@
-=== WordBB ===
+<h1>WordBB</h1>
 
 This is a bridge between WordPress blogging platform and MyBB message board.
 
-== Description ==
+Credits: https://en-gb.wordpress.org/plugins/wordbb/
+
+<h2>Description</h2>
 
 WordBB's main feature is to create a thread for each blog post in a particular section, so that the forum can be used as a replacement to the blog comment system.
 
@@ -16,7 +18,7 @@ WordBB does everything behind the scene and doesn't require any code modificatio
 
 Moreover it is fully customisable and fits nicely in WordPress's admin panel controls and style. WordPress and MyBB can run on different databases.
 
-== Installation ==
+<h2>Installation</h2>
 
 In order to install WordBB just extract the "wordbb" directory in your WordPress plugins folder.
 Then activate the plugin from your WP admin section, go to Plugins -> WordBB Configuration and set the required fields such as MyBB's root directory and URL.
@@ -24,7 +26,7 @@ Then activate the plugin from your WP admin section, go to Plugins -> WordBB Con
 Once installed, new sections in your admin panel will appear, such as WordBB Posts and WordBB Categories.
 Also, in the Users section you'll be able to link WP users to existing MyBB users.
 
-= Custom theme functions =
+<h2>Custom theme functions</h2>
 
 WordBB adds some functions which you can use in your WordPress theme:
 
@@ -45,21 +47,23 @@ WordBB adds some functions which you can use in your WordPress theme:
 - wordbb_get_logout_key() : returns the logout key for the currently logged in MyBB user.
 - wordbb_get_logout_url() : returns the logout URL for the currently logged in MyBB user.
 
-== Frequently Asked Questions ==
+<h2>Frequently Asked Questions</h2>
 
-= Why you need this =
+<h3>Why you need this</h3>
 Just think of a "News" section in your message board with all the threads displayed as post entries on your WordPress site. Your users will be able to post comments using your MyBB forums instead of the integrated WordPress comment system.
 
-= What's the Sync button for? =
+<h3>What's the Sync button for?</h3>
 Let's suppose you create a thread, then you switch from full to excerpt mode: you have to resync the thread in order for it to have the excerpt as the message. Also, if you edit the bridged thread, you can use that button to restore it to its original content.
 
-= Known problems =
+<h3>Known problems</h3>
 No known problems so far! :)
 
-= I need X function, when will you add it? =
-Other functions will be added in the future; anyway, if you want to request a particular feature you'd like to see in WordBB, you can contact me here: http://valadilene.org/contacts.
+<h3>I need X function, when will you add it?</h3>
+Other functions will be added in the future; anyway, if you want to request a particular feature you'd like to see in WordBB, you can request it here on GitHub.
 
-== Changelog ==
+<h2>Changelog</h2>
+
+The updates listed below are in order of newest to oldest.
 
 <h3>WordBB 0.3.1</h3>
 
