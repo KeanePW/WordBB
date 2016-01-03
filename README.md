@@ -64,7 +64,7 @@ Other functions will be added in the future; anyway, if you want to request a pa
 <h2>Todo</h2>
 
 <ul>
-<li>Make compatible with latest version of WordPress and MyBB. Bug reported here: http://community.mybb.com/thread-187657.html</li>
+<li>Done - January 3rd 2016 - Make compatible with latest version of WordPress and MyBB. Bug reported here: http://community.mybb.com/thread-187657.html</li>
 </ul>
 
 <h2>Changelog</h2>
@@ -75,7 +75,7 @@ The updates listed below are in order of newest to oldest.
 
 <b>January 3rd 2016</b>
 <ul>
-<li>Fixed issues 1, 2 and 3 in GitHub issue tracker</li>
+<li>Fixed issues 1, 2, 3 and 4 in GitHub issue tracker</li>
 </ul>
 
 <h3>WordBB 0.3.1</h3>
