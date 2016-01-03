@@ -2,16 +2,16 @@
 
 /**
  * @package WordBB
- * @author Hangman
+ * @author Graham
  * @version 0.3
  */
 /*
-Plugin Name: WordBB - WP side
-Plugin URI: http://valadilene.org/wordbb
-Description: WordPress/MyBB bridge.
-Author: Hangman
-Version: 0.3.1
-Author URI: http://valadilene.org
+Plugin Name: WordBB
+Plugin URL: https://github.com/KeanePW/WordBB
+Description: WordPress/MyBB Bridge
+Author: Graham
+Version: 0.3.2
+Author URI: https://github.com/KeanePW
 */
 
 require_once('functions.php');

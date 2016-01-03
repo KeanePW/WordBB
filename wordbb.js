@@ -1,9 +1,9 @@
 /*
 	WordBB JavaScript functions
 
-	This is part of WordBB plugin. Get it on http://valadilene.org/wordbb
+	This is part of WordBB plugin.
 
-	http://valadilene.org/
+	https://github.com/KeanePW/WordBB
 */
 
 jQuery(document).ready(function() {
