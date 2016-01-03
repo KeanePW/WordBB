@@ -31,13 +31,8 @@ if(wordbb_init())
 
 	if(is_admin())
 	{
-
-		// Somewhere in this case we cause:
-		// Notice: has_cap was called with an argument that is deprecated since version 2.0! Usage of user levels by plugins and themes is deprecated. Use roles and capabilities instead. in /home/keanepw/public_html/wordbb/wp-includes/functions.php on line 3732
-		// It's: add_action('admin_menu', 'wordbb_plugin_menu'); causing the first error
-
 		// init
-		//add_action('admin_menu', 'wordbb_plugin_menu');
+		add_action('admin_menu', 'wordbb_plugin_menu');
 
 		// users
 		add_action('admin_head', 'wordbb_admin_users_update');
@@ -560,12 +555,10 @@ function wordbb_do_action($action,$params)
 }
 
 function wordbb_plugin_menu() {
-	//edit_pages add_posts_page('WordBB Categories', 'WordBB Categories', 8, 'wordbb-categories', 'wordbb_categories_page');
 	add_posts_page('WordBB Categories', 'WordBB Categories', 'edit_pages', 'wordbb-categories', 'wordbb_categories_page');
 }
 
 function wordbb_plugin_options_menu() {
-	//edit_pages add_options_page('WordBB Options', 'WordBB Options', 8, 'wordbb-options', 'wordbb_options_page');
 	add_options_page('WordBB Options', 'WordBB Options', 'edit_pages', 'wordbb-options', 'wordbb_options_page');
 }
 
