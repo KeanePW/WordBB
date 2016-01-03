@@ -61,6 +61,12 @@ No known problems so far! :)
 <h3>I need X function, when will you add it?</h3>
 Other functions will be added in the future; anyway, if you want to request a particular feature you'd like to see in WordBB, you can request it here on GitHub.
 
+<h2>Todo</h2>
+
+<ul>
+<li>Make compatible with latest version of WordPress and MyBB. Bug reported here: http://community.mybb.com/thread-187657.html</li>
+</ul>
+
 <h2>Changelog</h2>
 
 The updates listed below are in order of newest to oldest.
