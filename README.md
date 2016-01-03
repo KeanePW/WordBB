@@ -1,23 +1,19 @@
 === WordBB ===
-Contributors: Hangman
-Donate link: http://valadilene.org/wordbb
-Tags: mybb, integration, bridge
-Requires at least: 2.0.2
-Tested up to: 3.0
-Stable tag: trunk
 
 This is a bridge between WordPress blogging platform and MyBB message board.
 
 == Description ==
 
-WordBB's main feature is to create a thread for each blog post in a particular section, so that the forum can be used as a replacement to the blog comment system. 
+WordBB's main feature is to create a thread for each blog post in a particular section, so that the forum can be used as a replacement to the blog comment system.
+
 The WordPress side handles situations such as post editing and deletion. Similarly, the MyBB side takes account of the thread actions which are reflected on the corresponding WordPress post.
 
 WordBB also allows linking between WordPress authors and MyBB users. In this way, when a blog post gets published, a thread is automatically created by the correct user.
 
 Another cool feature is a WordPress sidebar widget that displays the latest discussions from your MyBB board. You can set the maximum number of entries, exclude specific forum categories, and choose whether to show posts or threads.
 
-WordBB does everything behind the scene and doesn't require any code modification or hack: just install the plugin and in a few seconds it will be up and running. 
+WordBB does everything behind the scene and doesn't require any code modification or hack: just install the plugin and in a few seconds it will be up and running.
+
 Moreover it is fully customisable and fits nicely in WordPress's admin panel controls and style. WordPress and MyBB can run on different databases.
 
 == Installation ==
