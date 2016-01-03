@@ -8,8 +8,11 @@ $action=!empty($_POST['action'])?$_POST['action']:$_GET['action'];
 if(!isset($action))
 	die;
 
-if(!empty($_POST['action']))
+if(!empty($_POST['action'])) {
 	$ajax=$_POST['ajax'];
+} else {
+	$ajax=false;
+}
 
 function wordbb_get_arg($name)
 {
