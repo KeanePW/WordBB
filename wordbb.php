@@ -31,8 +31,13 @@ if(wordbb_init())
 
 	if(is_admin())
 	{
+
+		// Somewhere in this case we cause:
+		// Notice: has_cap was called with an argument that is deprecated since version 2.0! Usage of user levels by plugins and themes is deprecated. Use roles and capabilities instead. in /home/keanepw/public_html/wordbb/wp-includes/functions.php on line 3732
+		// It's: add_action('admin_menu', 'wordbb_plugin_menu'); causing the first error
+
 		// init
-		add_action('admin_menu', 'wordbb_plugin_menu');
+		//add_action('admin_menu', 'wordbb_plugin_menu');
 
 		// users
 		add_action('admin_head', 'wordbb_admin_users_update');
@@ -42,7 +47,7 @@ if(wordbb_init())
 		// posts
 		add_action('publish_post', 'wordbb_publish_post');
 		add_action('future_to_publish', 'wordbb_publish_post');
-		add_action('delete_post', 'wordbb_delete_bridge_thread');		
+		add_action('delete_post', 'wordbb_delete_bridge_thread');
 
 		add_action('manage_posts_custom_column', 'wordbb_posts_custom_column', 8, 2);
 		add_filter('manage_posts_columns', 'wordbb_posts_columns');
@@ -182,6 +187,11 @@ function wordbb_init() {
 		$wordbb->users=$users['usernames'];
 		$wordbb->usersinfo=$users['usersinfo'];*/
 		
+		// Define the $wordbb_post_author variable if it is not set
+		if ( isset ( $wordbb_post_author ) == false ) {
+			$wordbb_post_author = "";
+		}
+
 		// store default author's id
 		$post_author=wordbb_get_user_info_by_username($wordbb_post_author);
 		if(!empty($post_author))
@@ -455,8 +465,8 @@ function wordbb_display_errors() {
 
 	if(empty($wordbb->errors))
 	{
-		$wordbb->errors['title']=$_GET['errors_title'];
-		$wordbb->errors['errors']=$_GET['errors'];
+		$wordbb->errors['title'] = isset($_GET['errors_title']) ? $_GET['errors_title'] : NULL;
+		$wordbb->errors['errors'] = isset($_GET['errors']) ? $_GET['errors'] : NULL;
 	}
 	
 	// display error messages
@@ -550,11 +560,13 @@ function wordbb_do_action($action,$params)
 }
 
 function wordbb_plugin_menu() {
-	add_posts_page('WordBB Categories', 'WordBB Categories', 8, 'wordbb-categories', 'wordbb_categories_page');
+	//edit_pages add_posts_page('WordBB Categories', 'WordBB Categories', 8, 'wordbb-categories', 'wordbb_categories_page');
+	add_posts_page('WordBB Categories', 'WordBB Categories', 'edit_pages', 'wordbb-categories', 'wordbb_categories_page');
 }
 
 function wordbb_plugin_options_menu() {
-	add_options_page('WordBB Options', 'WordBB Options', 8, 'wordbb-options', 'wordbb_options_page');
+	//edit_pages add_options_page('WordBB Options', 'WordBB Options', 8, 'wordbb-options', 'wordbb_options_page');
+	add_options_page('WordBB Options', 'WordBB Options', 'edit_pages', 'wordbb-options', 'wordbb_options_page');
 }
 
 function wordbb_options_page() {
@@ -1217,9 +1229,13 @@ function wordbb_comment_loop_start()
 
 function wordbb_admin_users_update()
 {
-	$wordbb_users=$_GET['wordbb_users'];
+	if ( isset ( $_GET['wordbb_users'] ) ) {
+		$wordbb_users=$_GET['wordbb_users'];
+	} else {
+		$wordbb_users=false;
+	}
 
-	if(!isset($wordbb_users))
+	if( !$wordbb_users )
 		return;
 
 	foreach($wordbb_users as $id=>$wordbb_user)

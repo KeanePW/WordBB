@@ -11,7 +11,9 @@ function wordbb_select_mybb_db()
 {
 	global $wpdb, $wordbb;
 
-	if($wordbb->mybbdb)
+	// property_exists — Checks if the object or class has a property
+	//if($wordbb->mybbdb)
+	if ( property_exists ( 'wordbb', 'mybbdb' ) )
 		return;
 
 	$dbuser=get_option('wordbb_dbuser');
@@ -29,12 +31,19 @@ function wordbb_select_mybb_db()
 		$dbhost=DB_HOST;
 
 	$wordbb->mybbdb=new wpdb($dbuser, $dbpass, $dbname, $dbhost);
-	if(is_wp_error($wordbb->mybbdb->error))
-	{
-		$errors=array("Couldn't connect to the specified database");
-		wordbb_set_errors('Database configuration error. Go to <a href="options-general.php?page=wordbb-options">WordBB Options</a>',$errors,false);
+	
+	// Output error connecting to WordPress Database if there was an error...
+	// This does not apply if we entered separate database details for MyBB
 
-		return false;
+	if ( property_exists ( 'mybbdb', 'error' ) )
+	{
+		if(is_wp_error($wordbb->mybbdb->error))
+		{
+			$errors=array("Couldn't connect to the specified database");
+			wordbb_set_errors('Database configuration error. Go to <a href="options-general.php?page=wordbb-options">WordBB Options</a>',$errors,false);
+
+			return false;
+		}
 	}
 
 	return true;
@@ -61,16 +70,16 @@ function wordbb_get_bridge($type,$wp_id='',$mybb_id='')
 
 	$bridge=false;
 
-	$q='SELECT * FROM wordbb_meta WHERE type="'.$wpdb->esc_sql($type).'"';
+	$q='SELECT * FROM wordbb_meta WHERE type="'.esc_sql($type).'"';
 
 	switch($type)
 	{
 	case WORDBB_CAT:
 		{
 			if(!empty($wp_id))
-				$q.=' AND wp_id='.$wpdb->esc_sql($wp_id);
+				$q.=' AND wp_id='.esc_sql($wp_id);
 			if(!empty($mybb_id))
-				$q.=' AND mybb_id='.$wpdb->esc_sql($mybb_id);
+				$q.=' AND mybb_id='.esc_sql($mybb_id);
 
 			$bridge=$wpdb->get_row($q);
 		}
@@ -85,9 +94,9 @@ function wordbb_get_bridge($type,$wp_id='',$mybb_id='')
 			}
 
 			if(!empty($wp_id))
-				$q.=' AND wp_id='.$wpdb->esc_sql($wp_id);
+				$q.=' AND wp_id='.esc_sql($wp_id);
 			if(!empty($mybb_id))
-				$q.=' AND mybb_id='.$wpdb->esc_sql($mybb_id);
+				$q.=' AND mybb_id='.esc_sql($mybb_id);
 
 			$bridge=$wpdb->get_row($q);
 		}
